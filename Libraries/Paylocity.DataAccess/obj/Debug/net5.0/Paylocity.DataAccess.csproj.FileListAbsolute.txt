@@ -1,0 +1,15 @@
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.DataAccess\bin\Debug\net5.0\Paylocity.DataAccess.deps.json
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.DataAccess\bin\Debug\net5.0\Paylocity.DataAccess.dll
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.DataAccess\bin\Debug\net5.0\ref\Paylocity.DataAccess.dll
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.DataAccess\bin\Debug\net5.0\Paylocity.DataAccess.pdb
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.DataAccess\obj\Debug\net5.0\Paylocity.DataAccess.csproj.AssemblyReference.cache
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.DataAccess\obj\Debug\net5.0\Paylocity.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.DataAccess\obj\Debug\net5.0\Paylocity.DataAccess.AssemblyInfoInputs.cache
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.DataAccess\obj\Debug\net5.0\Paylocity.DataAccess.AssemblyInfo.cs
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.DataAccess\obj\Debug\net5.0\Paylocity.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.DataAccess\obj\Debug\net5.0\Paylocity.DataAccess.dll
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.DataAccess\obj\Debug\net5.0\ref\Paylocity.DataAccess.dll
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.DataAccess\obj\Debug\net5.0\Paylocity.DataAccess.pdb
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.DataAccess\bin\Debug\net5.0\Paylocity.Common.dll
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.DataAccess\bin\Debug\net5.0\Paylocity.Common.pdb
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.DataAccess\obj\Debug\net5.0\Paylocity.DataAccess.csproj.CopyComplete

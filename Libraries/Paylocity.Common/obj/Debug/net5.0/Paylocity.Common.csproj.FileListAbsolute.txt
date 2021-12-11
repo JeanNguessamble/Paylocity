@@ -1,0 +1,11 @@
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Common\bin\Debug\net5.0\Paylocity.Common.deps.json
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Common\bin\Debug\net5.0\Paylocity.Common.dll
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Common\bin\Debug\net5.0\ref\Paylocity.Common.dll
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Common\bin\Debug\net5.0\Paylocity.Common.pdb
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Common\obj\Debug\net5.0\Paylocity.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Common\obj\Debug\net5.0\Paylocity.Common.AssemblyInfoInputs.cache
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Common\obj\Debug\net5.0\Paylocity.Common.AssemblyInfo.cs
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Common\obj\Debug\net5.0\Paylocity.Common.csproj.CoreCompileInputs.cache
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Common\obj\Debug\net5.0\Paylocity.Common.dll
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Common\obj\Debug\net5.0\ref\Paylocity.Common.dll
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Common\obj\Debug\net5.0\Paylocity.Common.pdb

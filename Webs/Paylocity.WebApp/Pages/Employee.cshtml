@@ -1,0 +1,197 @@
+﻿@page
+@model EmployeeModel
+@{
+    ViewData["Title"] = "Employees";
+
+    var companyResp = ViewData["Paylocity.Partner"] as Paylocity.Common.Entity.response;
+    var employeesResp = ViewData["Paylocity.CompanyEmployees"] as Paylocity.Common.Entity.response;
+    var dependentsResp = ViewData["Paylocity.CompanyEmployees.Dependents"] as Paylocity.Common.Entity.response;
+    var payChecksResp = ViewData["Paylocity.CompanyEmployees.PayChecks"] as Paylocity.Common.Entity.response;
+
+}
+
+<div>
+    <div>
+        <h3>
+            @{
+                if (companyResp != null && companyResp.count > 0)
+                {
+                    var companyRecords = companyResp.data as IEnumerable<Paylocity.Common.Entity.company>;
+                    var companyRecord = companyRecords.First();
+
+                    <span>@companyRecord.name Employees</span>
+                    <span id="companyId" hidden="hidden">@companyRecord.id</span>
+                }
+                else
+                {
+                    var companiesResp = ViewData["Paylocity.Partners"] as Paylocity.Common.Entity.response;
+                    <span>Paylocity Partner &nbsp;</span>
+                     if (companiesResp != null && companiesResp.count > 0)
+                    {
+                        var companies = companiesResp.data as IEnumerable<Paylocity.Common.Entity.company>;
+                        <select id="companySelect" onchange="getEmployeeByCompany(this);">
+                            <option>Please Select</option>
+                            @{
+                                foreach (var company in companies)
+                                {
+                                    <option value="@company.id">@company.name</option>
+                                }
+                             }
+                        </select>
+                    }
+                }
+            }
+        </h3>
+    </div>
+    <table style="width:700px; text-align:center;">
+        <tr style="background-color:gray;">
+            <th>Empl. Id</th>
+            <th>&nbsp;</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Gross Pay</th>
+            <th>Active</th>
+            <th>&nbsp;<a id="employeeSave" href="javascript:addEmployee(this);"><img src="~/images/add_icon.png" width="70" height="30" /></a></th>
+        </tr>
+        <tr><td colspan="6">&nbsp;</td></tr>
+        <tr id="trAddEmployee" style="display:none; background-color:chocolate;">
+            <td colspan="2">Add new</td>
+            <td><input id="employeeFirstName" type="text" /></td>
+            <td><input id="employeeLastName" type="text" /></td>
+            <td><input id="employeeGrossPay" type="text" /></td>
+            <td><input id="employeeActive" type="checkbox" /></td>
+            <td>
+                <a id="employeeSave" href="javascript:saveEmployee(this);"><img src="~/images/save_icon.jpg" width="30" height="20" /></a>
+                <a id="employeeCancel" href="javascript:cancelEmployee(this);"><img src="~/images/cancel_icon.jpg" width="20" height="20" /></a>
+            </td>
+        </tr>
+        @{
+            if (employeesResp != null && employeesResp.count > 0)
+            {
+                int i = 1;
+                var employeesRecords = employeesResp.data as IEnumerable<Paylocity.Common.Entity.employee>;
+                var dependentRecords = dependentsResp.data as IEnumerable<Paylocity.Common.Entity.dependent>;
+                var payCheckRecords = payChecksResp.data as IEnumerable<Paylocity.Common.Entity.pay_check>;
+
+                foreach (var employeeRecord in employeesRecords)
+                {
+                    string styleName = "white";
+                    if (i % 2 == 0) styleName = "silver";
+
+                    var grossPayRecord = payCheckRecords.FirstOrDefault(w => w.employee.id == employeeRecord.id);
+                <tr style="background-color:@styleName;">
+                    <td><a href='/contribution?id=@employeeRecord.id'>@employeeRecord.id</a></td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <span id="spanEmployeeNameLast_@employeeRecord.id">@employeeRecord.name.last</span>
+                        <input id="inputEmployeeNameLast_@employeeRecord.id" type="text" value="@employeeRecord.name.last" style="display:none;" />
+                    </td>
+                    <td>
+                        <span id="spanEmployeeNameFirst_@employeeRecord.id">@employeeRecord.name.first</span>
+                        <input id="inputEmployeeNameFirst_@employeeRecord.id" type="text" value="@employeeRecord.name.first" style="display:none;" />
+                    </td>
+                    <td>
+                        @{ if (grossPayRecord != null && grossPayRecord.amount > 0)
+                            {
+                                <input id="hdfGrossPay_@employeeRecord.id" type="hidden" value="@grossPayRecord.id" />
+                                <span id="spanGrossPay_@grossPayRecord.id">@grossPayRecord.amount</span>
+                                <input id="inputGrossPay_@grossPayRecord.id" type="text" value="@grossPayRecord.amount" style="display:none;" />
+                            }
+                            else
+                            {
+                                <input id="inputEmployeeGrossPay_@employeeRecord.id" type="text"  style="display:none;" />
+                            }
+                         }
+                    </td>
+                    <td>
+                        <input id="chkEmployeeActive_@employeeRecord.id" type="checkbox" checked=@employeeRecord.active disabled ="disabled"  />
+                    </td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    <table>
+                                        <tr>
+                                            <td><a id="employeeEdit_@employeeRecord.id" href="javascript:editEmployee(@employeeRecord.id);"><img src="~/images/edit_icon.jpg" width="20" height="20" /></a></td>
+                                            <td><a id="employeeSave_@employeeRecord.id" href="javascript:updateEmployee(this, @employeeRecord.id);" style="display:none;"><img src="~/images/save_icon.jpg" width="50" height="20" /></a></td>
+                                            <td><a id="employeeCancel_@employeeRecord.id" href="javascript:cancelEmployee(@employeeRecord.id);" style="display:none;"><img src="~/images/cancel_icon.jpg" width="20" height="20" /></a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <a id="employeeDetail_@employeeRecord.id" href="javascript:detailEmployee(@employeeRecord.id);"><img src="~/images/detail_icon.jpg" width="20" height="20" /></a>
+                                    <a id="detaiEmployeelHide_@employeeRecord.id" href="javascript:detailHideEmployee(@employeeRecord.id);" style="display:none"><img src="~/images/hide_icon.png" width="30" height="20" /></a>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td><a id="employeeDelete_@employeeRecord.id" href="javascript:deleteEmployee(@employeeRecord.id);"><img src="~/images/delete_icon.jpg" width="20" height="20" /></a></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                    <tr id="trEmployeeDetail_@employeeRecord.id" name="trEmployeeDetail_" style="display:none;">
+                        <td colspan="5">
+                            <b>Dependents listed for @employeeRecord.name.full</b>
+                            <table style="width:500px; text-align:center;">
+                                <tr style="background-color:aliceblue;">
+                                    <td>First Name</td>
+                                    <td>Last Name</td>
+                                    <td>Relationship</td>
+                                    <th>&nbsp;<a id="dependentSave_@employeeRecord.id" href="javascript:addDependent(this);"><img src="~/images/add_icon.png" width="70" height="30" /></a></th>
+                                </tr>
+                                <tr id="trAddDependent_@employeeRecord.id" style="display:none; background-color:chocolate;">
+                                    <td colspan="2">Add new</td>
+                                    <td><input id="dependentFirstName_@employeeRecord.id" type="text" /></td>
+                                    <td><input id="dependentLastName_@employeeRecord.id" type="text" value="@employeeRecord.name.last" /></td>
+                                    <td><select id="dependentRelationship_@employeeRecord.id">
+                                            <option value="">Select</option>
+                                            <option value="Daughter">Daughter</option>
+                                            <option value="Son">Sone</option>
+                                            <option value="Wife">Wife</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <table>
+                                            <tr>
+                                                <td><a id="dependentSave_@employeeRecord.id" href="javascript:saveDependent(this);"><img src="~/images/save_icon.png" width="30" height="20" /></a></td>
+                                                <td><a id="dependentCancel_@employeeRecord.id" href="javascript:cancelDependent(this);"><img src="~/images/cancel_icon.jpg" width="20" height="20" /></a></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                @{
+                                    var _dependentRecords = dependentRecords.Where(w => w.employee.id == employeeRecord.id).ToList();
+                                    if (_dependentRecords.Count > 0)
+                                    {
+
+                                        foreach (var dependentRecord in _dependentRecords)
+                                        {
+                                            <tr>
+                                                <td>@dependentRecord.name.first</td>
+                                                <td>@dependentRecord.name.last</td>
+                                                <td>@dependentRecord.relationship</td>
+                                                <td>
+                                                    <table>
+                                                        <tr>
+                                                            <td><a id="editDependent_@dependentRecord.id" href="javascript:editDependent(@dependentRecord.id);"><img src="~/images/edit_icon.jpg" width="20" height="20" /></a></td>
+                                                            <td>&nbsp;</td>
+                                                            <td><a id="deleteDependent_@dependentRecord.id" href="javascript:deleteDependent(@dependentRecord.id);"><img src="~/images/delete_icon.jpg" width="20" height="20" /></a></td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    i++;
+                }
+            }
+        }
+    </table>
+</div>
+<script src="~/js/employee.js"></script>

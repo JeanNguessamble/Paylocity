@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\Paylocity.Common\Paylocity.Common.csproj" />
+    <ProjectReference Include="..\..\Libraries\Paylocity.DataAccess\Paylocity.DataAccess.csproj" />
+    <ProjectReference Include="..\..\Libraries\Paylocity.Logic\Paylocity.Logic.csproj" />
+  </ItemGroup>
+
+</Project>

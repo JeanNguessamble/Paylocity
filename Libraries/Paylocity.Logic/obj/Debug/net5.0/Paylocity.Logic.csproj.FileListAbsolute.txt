@@ -1,0 +1,17 @@
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\bin\Debug\net5.0\Paylocity.Logic.deps.json
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\bin\Debug\net5.0\Paylocity.Logic.dll
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\bin\Debug\net5.0\ref\Paylocity.Logic.dll
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\bin\Debug\net5.0\Paylocity.Logic.pdb
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\obj\Debug\net5.0\Paylocity.Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\obj\Debug\net5.0\Paylocity.Logic.AssemblyInfoInputs.cache
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\obj\Debug\net5.0\Paylocity.Logic.AssemblyInfo.cs
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\obj\Debug\net5.0\Paylocity.Logic.csproj.CoreCompileInputs.cache
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\obj\Debug\net5.0\Paylocity.Logic.dll
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\obj\Debug\net5.0\ref\Paylocity.Logic.dll
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\obj\Debug\net5.0\Paylocity.Logic.pdb
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\bin\Debug\net5.0\Paylocity.Common.dll
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\bin\Debug\net5.0\Paylocity.DataAccess.dll
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\bin\Debug\net5.0\Paylocity.Common.pdb
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\bin\Debug\net5.0\Paylocity.DataAccess.pdb
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\obj\Debug\net5.0\Paylocity.Logic.csproj.CopyComplete
+C:\Users\jean\source\repos\Paylocity\Libraries\Paylocity.Logic\obj\Debug\net5.0\Paylocity.Logic.csproj.AssemblyReference.cache

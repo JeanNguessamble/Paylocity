@@ -1,0 +1,111 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+
+    var companyResp = ViewData["Paylocity.Partners"] as Paylocity.Common.Entity.response;
+    var deductionResp = ViewData["Paylocity.Partners.Deductions"] as Paylocity.Common.Entity.response;
+
+}
+
+
+
+<div>
+    <h3> Paylocity Companies</h3>
+
+    <table style="width:700px; text-align:center;">
+        <tr style="background-color:gray;">
+            <th colspan="2">#</th>
+            <th>Name</th>
+            <th>Pay Frequency</th>
+            <th>Active</th>
+            <th>&nbsp;<a id="companySave" href="javascript:addCompany(this);"><img src="~/images/add_icon.png" alt="Add" width="70" height="30" /></a></th>
+        </tr>
+        <tr id="trAddCompany" style="display:none;">
+            <td colspan="2">Add new</td>
+            <td><input id="companyName" type="text" /></td>
+            <td><select id="companyFreq">
+                    <option value="Weekly">Weekly</option>
+                    <option value="Biweekly">BiWeekly</option>
+                </select>
+            </td>
+            <td><input id="companyActive" type="checkbox"/></td>
+            <td><a id="companySave" href="javascript:saveCompany(this);"><img src="~/images/save_icon.png" alt="Save" width="30" height="20" /></a>
+                <a id="companyCancel" href="javascript:cancelCompany(this);"><img src="~/images/cancel_icon.jpg" alt="Cancel" width="20" height="20" /></a>
+            </td>
+        </tr>
+        @{
+            if (companyResp != null && companyResp.count > 0)
+            {
+                int i = 1;
+                var companyRecords = companyResp.data as IEnumerable<Paylocity.Common.Entity.company>;
+                var deductionRecords = deductionResp.data as IEnumerable<Paylocity.Common.Entity.deduction>;
+                foreach (var companyRecord in companyRecords)
+                {
+                    string styleName = "white";
+                    if (i % 2 == 0) styleName = "silver";
+                <tr style="background-color:@styleName;">
+                    <td>&nbsp;@i</td>
+                    <td><a id="companyReport" href="javascript:runCompanyReport(@companyRecord.id);"><img src="~/images/report.jpg" alt="Report" width="30" height="20" /></a></td>
+                    <td><a href='/employee?id=@companyRecord.id'>@companyRecord.name</a></td>
+                    <td><span>@companyRecord.pay_frequency</span></td>
+                    <td><input id="chk_@companyRecord.id" type="checkbox" checked=@companyRecord.active disabled="disabled" /></td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td><a id="edit_@companyRecord.id" href="javascript:editCompany(@companyRecord.id);"><img src="~/images/edit_icon.jpg" alt="Edit" width="20" height="20" /></a></td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <a id="detail_@companyRecord.id" href="javascript:detailCompany(@companyRecord.id);"><img src="~/images/detail_icon.jpg" width="20" alt="Detail" height="20" /></a>
+                                    <a id="detailHide_@companyRecord.id" href="javascript:detailHideCompany(@companyRecord.id);" style="display:none"><img src="~/images/hide_icon.png" alt="Hide" width="30" height="20" /></a>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td><a id="delete_@companyRecord.id" href="javascript:deleteCompany(@companyRecord.id);"><img src="~/images/delete_icon.jpg" alt="Delete" width="20" height="20" /></a></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                    <tr id="trCompanyDetail_@companyRecord.id" name="trCompanyDetail_" style="display:none;">
+                        <td colspan="6">
+                            <table style="width:500px; text-align:center;">
+                                <tr style="background-color:aliceblue;">
+                                    <td>Employee Contribution</td>
+                                    <td>Dependent Contribution</td>
+                                    <th>&nbsp;<a id="deductionSave" href="javascript:addDeduction(this);"><img src="~/images/add_icon.png" width="70" height="30" /></a></th>
+                                </tr>
+                                @{
+                                    var _deductionRecords = deductionRecords.Where(w => w.company.id == companyRecord.id).ToList();
+                                    if (_deductionRecords.Count > 0)
+                                    {
+
+                                        foreach (var deductionRecord in _deductionRecords)
+                                            {
+                                                <tr>
+                                                    <td>@deductionRecord.employee</td>
+                                                    <td>@deductionRecord.dependent</td>
+                                                    <td>
+                                                        <table>
+                                                            <tr>
+                                                                <td><a id="edit_@deductionRecord.id" href="javascript:editDeduction(@deductionRecord.id);"><img src="~/images/edit_icon.jpg" width="20" height="20" /></a></td>
+                                                                <td>&nbsp;</td>
+                                                                <td><a id="delete_@deductionRecord.id" href="javascript:deleteDeduction(@deductionRecord.id);"><img src="~/images/delete_icon.jpg" width="20" height="20" /></a></td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            }
+                                    }
+                                }
+                            </table>
+
+                        </td>
+                    </tr>
+                  i++;
+                }
+            }
+        }
+    </table>
+</div>
+
+<script src="~/js/index.js"></script>
+
