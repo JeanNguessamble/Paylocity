@@ -17,7 +17,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestApp", "TestApp", "{6B25
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paylocity.TestConsole", "Consoles\Paylocity.TestConsole\Paylocity.TestConsole.csproj", "{75088ACB-5AB7-4A76-AA40-DF16C3830620}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paylocity.WebApp", "Webs\Paylocity.WebApp\Paylocity.WebApp.csproj", "{EA8BB669-ABFF-43B7-9D21-30221C1BAA20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Paylocity.WebApp", "Webs\Paylocity.WebApp\Paylocity.WebApp.csproj", "{EA8BB669-ABFF-43B7-9D21-30221C1BAA20}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{B96C1196-F7B8-4123-B963-054400FEA39B}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Paylocity.SQLDB", "Paylocity.SQLDB\Paylocity.SQLDB.sqlproj", "{8BFD241B-C769-442C-B171-EB6748799009}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,12 @@ Global
 		{EA8BB669-ABFF-43B7-9D21-30221C1BAA20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA8BB669-ABFF-43B7-9D21-30221C1BAA20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA8BB669-ABFF-43B7-9D21-30221C1BAA20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BFD241B-C769-442C-B171-EB6748799009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BFD241B-C769-442C-B171-EB6748799009}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BFD241B-C769-442C-B171-EB6748799009}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8BFD241B-C769-442C-B171-EB6748799009}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BFD241B-C769-442C-B171-EB6748799009}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BFD241B-C769-442C-B171-EB6748799009}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +65,7 @@ Global
 		{565CE10F-5608-40A0-95EE-D4447387DE90} = {465E6738-E55D-4B7A-BBFF-6ACC73691681}
 		{75088ACB-5AB7-4A76-AA40-DF16C3830620} = {6B25FCD0-073E-4F04-BDA3-D9CF50FA9B2C}
 		{EA8BB669-ABFF-43B7-9D21-30221C1BAA20} = {01C36C23-B103-43AF-8608-9759E114B478}
+		{8BFD241B-C769-442C-B171-EB6748799009} = {B96C1196-F7B8-4123-B963-054400FEA39B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6F01EEF6-EB53-47D2-8E69-3DA3B3A38B1F}
